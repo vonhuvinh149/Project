@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div style="margin-top: 100px" class="container-fluid">
+  <div class="row mt-3">
+    <!--menu-->
+    <div class="col-lg-3 sidenav">
+      <app-menu></app-menu>
+    </div>
+    <button (click)="goHeader()" class="upBtn d-flex justify-content-center align-items-center"><i class="fa-solid fa-circle-up" style="font-size: 50px; color: rgba(0,0,0,0.63);" ></i></button>
+
+    <!--content-->
+    <div class="col-lg-9 p-2" id="top">
+      <div class="row container-fluid">
+        <div class="col-lg-3" *ngFor="let s of suggestList">
+          <div class="cart1 shadow">
+            <div class="cart_img">
+              <img src="{{s.avatar}}"
+                   alt="">
+            </div>
+            <h4 style="cursor: pointer" [routerLink]="['/user/users',s.idUser]">{{s.name}}</h4>
+            <i *ngIf="s.gender==true" style="font-size: 20px" class="fa-solid fa-person"></i>
+            <i *ngIf="s.gender==false" class="fa-solid fa-person-dress" style="font-size: 20px"></i>
+            <p *ngIf="s.gender==true">Nam</p>
+            <p *ngIf="s.gender==false">Nữ</p>
+            <div class="social">
+
+              <a href="#" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <button class="accept btn btn-sm btn-outline-primary" [routerLink]="['/users', s.idUser]" >Chi tiết</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
